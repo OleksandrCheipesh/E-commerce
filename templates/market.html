@@ -1,0 +1,22 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    Market
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>All products</h1>
+    {% for el in products %}
+    <div class="alert alert-info">
+        <h2>{{ el.name }}</h2>
+        <p>{{ el.description }}</p>
+        <p>Amount: {{ el.amount }}</p>
+        <h3>Price: {{ el.price }}$</h3>
+        <a href="/market/{{ el.id }}" class="btn btn-warning">Buy</a>
+
+    </div>
+
+    {% endfor %}
+</div>
+{% endblock %}

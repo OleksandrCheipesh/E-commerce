@@ -1,0 +1,19 @@
+{% extends 'index.html' %}
+
+{% block title %}
+	Create product
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1>Create your product</h1>
+    <form method="post">
+        <input type="text" name="name" id="name" class="form-control" placeholder="Name"><br>
+        <textarea name="description" id="desc" class="form-control" placeholder="Description"></textarea><br>
+        <input type="number" name="price" id="price" class="form-control" placeholder="Price"><br>
+        <input type="number" name="amount" id="amount" class="form-control" placeholder="Amount"><br>
+        <input type="submit" class="btn btn-success" value="Submit">
+    </form>
+
+</div>
+{% endblock %}
