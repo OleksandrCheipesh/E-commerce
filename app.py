@@ -26,6 +26,12 @@ def market():
     products = Products.query.all()
     return render_template('market.html' , products=products)
 
+@app.route('/market/<int:id>')
+def product_detail(id):
+    product = Products.query.get_or_404(id)
+    return render_template('product_detail.html', product=product)
+
+
 @app.route('/create_product', methods=['GET', 'POST'])
 def create_product():
     if request.method == 'POST':

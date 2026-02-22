@@ -5,18 +5,134 @@
 {% endblock %}
 
 {% block content %}
-<div class="container mt-5">
-    <h1>All products</h1>
-    {% for el in products %}
-    <div class="alert alert-info">
-        <h2>{{ el.name }}</h2>
-        <p>{{ el.description }}</p>
-        <p>Amount: {{ el.amount }}</p>
-        <h3>Price: {{ el.price }}$</h3>
-        <a href="/market/{{ el.id }}" class="btn btn-warning">Buy</a>
 
+
+<link href="{{ url_for('static', filename='css/market.css') }}" rel="stylesheet">
+
+
+<div class="container">
+    <div class="market-header">
+        <h1>All Products</h1>
+        <p>{{ products|length }} item{% if products|length != 1 %}s{% endif %} available</p>
     </div>
 
-    {% endfor %}
+    <div class="product-grid">
+        {% for el in products %}
+        <div class="product-card">
+            <div class="product-img-wrap">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMm7uhkJpaGpt_b-zio6xzDHBX91WDs4Xrxg&s" alt="{{ el.name }}" />
+                <button class="wishlist-btn" aria-label="Add to wishlist">♡</button>
+            </div>
+
+            <div class="product-body">
+                <div class="product-category">Product</div>
+                <h3 class="product-name">{{ el.name }}</h3>
+                <p class="product-desc">{{ el.description }}</p>
+                <div class="product-footer">
+                    <div class="product-price"><span>$</span>{{ el.price }}</div>
+                    <a class="btn-buy" href="/market/{{ el.id }}">Add to Cart</a>
+                </div>
+            </div>
+        </div>
+{#        {% empty %}#}
+{#        <div class="empty-state">#}
+{#            <p>No products available yet.</p>#}
+{#        </div>#}
+        {% endfor %}
+    </div>
 </div>
+
 {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{#{% extends 'index.html' %}#}
+{##}
+{#{% block title %}#}
+{#    Market#}
+{#{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#<div class="container mt-5">#}
+{#    <h1>All products</h1>#}
+{##}
+{##}
+{#        <div class="container">#}
+{#            <div class="well well-sm">#}
+{#                <strong>Category Title</strong>#}
+{#                <div class="btn-group">#}
+{#                    <a href="#" id="list" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-th-list">#}
+{#                    </span>List</a> <a href="#" id="grid" class="btn btn-default btn-sm"><span#}
+{#                        class="glyphicon glyphicon-th"></span>Grid</a>#}
+{#                </div>#}
+{##}
+{#                {% for el in products %}#}
+{#                </div>#}
+{#                    <div class="item  col-xs-4 col-lg-4">#}
+{#                        <div class="thumbnail">#}
+{#                            <img class="group list-group-image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMm7uhkJpaGpt_b-zio6xzDHBX91WDs4Xrxg&s" alt="" />#}
+{#                            <div class="caption">#}
+{#                                <h4 class="group inner list-group-item-heading">#}
+{#                                    {{ el.name }}</h4>#}
+{#                                <p class="group inner list-group-item-text">#}
+{#                                   {{ el.description }}</p>#}
+{#                                <div class="row">#}
+{#                                    <div class="col-xs-12 col-md-6">#}
+{#                                        <p class="lead">#}
+{#                                            {{ el.price }}$</p>#}
+{#                                    </div>#}
+{#                                    <div class="col-xs-12 col-md-6">#}
+{#                                        <a class="btn btn-success" href="/market/{{ el.id }}">Buy</a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    </div>#}
+{##}
+{#                </div>#}
+{#            </div>#}
+{##}
+{##}
+{##}
+{#                {% endfor %}#}
+{##}
+{##}
+{#{% endblock %}#}
+{##}
